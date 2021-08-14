@@ -11,7 +11,7 @@ from rbapi.routes.user.user import user_router, api as namespace_user
 app = Flask(__name__)
 
 api = Api(app,
-          version='1.1',
+          version='1.0',
           title='Api Redação brilhate',
           doc='/docs'
           )

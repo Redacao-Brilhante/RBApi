@@ -1,6 +1,5 @@
 from configuration import config
-from rbapi.flaskapp import app, db, add_namespace, register_blueprint
-from rbapi import models
+from rbapi.flaskapp import app, add_namespace, register_blueprint
 
 if __name__ == '__main__':
     add_namespace()

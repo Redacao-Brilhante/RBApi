@@ -18,13 +18,23 @@ api = Api(app,
 
 
 def register_blueprint():
-    app.register_blueprint(login_router, url_prefix=config.API_BASE_URL)
-    app.register_blueprint(user_router, url_prefix=config.API_BASE_URL)
+    blueprints = [
+        user_router,
+        login_router,
+
+    ]
+
+    [app.register_blueprint(blueprint, url_prefix=config.API_BASE_URL)
+     for blueprint in blueprints]
 
 
 def add_namespace():
-    api.add_namespace(namespace_login, path=config.API_BASE_URL)
-    api.add_namespace(namespace_user, path=config.API_BASE_URL)
+    namespaces = [
+        namespace_login,
+        namespace_user
+    ]
+    [api.add_namespace(namespace, path=config.API_BASE_URL)
+     for namespace in namespaces]
 
 
 app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{os.getcwd()}/rb.db"
